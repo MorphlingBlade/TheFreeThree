@@ -5,14 +5,17 @@
   <property name="image" value="gripe_run_right"/>
  </properties>
  <tileset firstgid="1" source="area01_level_tiles.tsx"/>
- <imagelayer name="backgroundlayer1">
-  <image source="../img/area01_bkg1.png" width="327" height="480"/>
- </imagelayer>
  <imagelayer name="backgroundlayer2">
   <image source="../img/area01_bkg0.png" width="640" height="480"/>
+  <properties>
+   <property name="ratio" value="0.35"/>
+  </properties>
  </imagelayer>
- <imagelayer name="background" offsetx="-30" offsety="0">
-  <image source="../img/area01_bkg0.png" width="640" height="480"/>
+ <imagelayer name="backgroundlayer1">
+  <image source="../img/area01_bkg1.png" width="327" height="480"/>
+  <properties>
+   <property name="ratio" value="0.5"/>
+  </properties>
  </imagelayer>
  <layer name="forergound" width="20" height="15">
   <data encoding="base64">
