@@ -10,7 +10,7 @@ game.PlayerEntity = me.Entity.extend({
       this._super(me.Entity, 'init', [x, y, settings]);
   
       // max walking & jumping speed
-      this.body.setMaxVelocity(3, 15);
+      this.body.setMaxVelocity(6, 20);
       this.body.setFriction(0.4, 0);
   
       // set the display to follow our position on both axis
@@ -45,12 +45,11 @@ game.PlayerEntity = me.Entity.extend({
                 this.renderable.setCurrentAnimation("walk");
             }
         } else if (me.input.isKeyPressed('right')) {
+  
             // unflip the sprite
             this.renderable.flipX(false);
             // update the entity velocity
-
             this.body.force.x = this.body.maxVel.x;
-            
             // change to the walking animation
             if (!this.renderable.isCurrentAnimation("walk")) {
                 this.renderable.setCurrentAnimation("walk");
