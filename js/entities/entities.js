@@ -10,7 +10,7 @@ game.PlayerEntity = me.Entity.extend({
       this._super(me.Entity, 'init', [x, y, settings]);
   
       // max walking & jumping speed
-      this.body.setMaxVelocity(6, 20);
+      this.body.setMaxVelocity(6, 25);
       this.body.setFriction(0.4, 0);
   
       // set the display to follow our position on both axis
