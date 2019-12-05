@@ -61,9 +61,10 @@ game.PlayerEntity = me.Entity.extend({
         }
   
         if (me.input.isKeyPressed('jump')) {
-  
+            
             if (!this.body.jumping && !this.body.falling)
             {
+                me.audio.play("jump");
                 // set current vel to the maximum defined value
                 // gravity will then do the rest
                 this.body.force.y = -this.body.maxVel.y
@@ -91,3 +92,31 @@ game.PlayerEntity = me.Entity.extend({
       return true;
     }
   });
+
+
+/**
+ * a Coin entity
+ */
+game.CoinEntity = me.CollectableEntity.extend({
+  // extending the init function is not mandatory
+  // unless you need to add some extra initialization
+  init: function (x, y, settings) {
+    // call the parent constructor
+    this._super(me.CollectableEntity, 'init', [x, y , settings]);
+
+  },
+
+  onCollision : function () {
+    // do something when collected
+  
+    me.audio.play("cling");
+    // give some score
+    game.data.score += 1;
+  
+    // make sure it cannot be collected "again"
+    this.body.setCollisionMask(me.collision.types.NO_OBJECT);
+  
+    // remove it
+    me.game.world.removeChild(this);
+  }
+});
