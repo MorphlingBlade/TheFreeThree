@@ -5,6 +5,8 @@ game.PlayScreen = me.ScreenObject.extend({
     onResetEvent : function () {
       // load a level
       me.levelDirector.loadLevel("area02");
+
+      me.audio.playTrack("dst-inertexponent");
   
       // reset the score
       game.data.score = 0;
@@ -20,5 +22,6 @@ game.PlayScreen = me.ScreenObject.extend({
     onDestroyEvent : function () {
       // remove the HUD from the game world
       me.game.world.removeChild(this.HUD);
+      me.audio.stopTrack();
     }
   });
